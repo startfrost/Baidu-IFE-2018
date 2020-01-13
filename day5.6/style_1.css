@@ -1,0 +1,67 @@
+/* 清除 *、li、img 的默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+    border: none;
+}
+
+body {
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 1000;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    clear: both;
+}
+
+dl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 解决由float造成margin大小不对的问题 */
+dl::after {
+    clear: both;
+    height: 0;
+    width: 100%;
+    content: '';
+    display: block;
+}
+
+dl dt {
+    font-weight: 600;
+}
+
+.base-information dt,
+ .contact-information dt {
+    float: left;
+    margin-right: 10px;
+}
+
+.base-information dd,
+ .contact-information dd {
+    float: left;
+    margin-right: 30px;
+}
+
+.ability-information div,
+ .education-information div,
+ .project-information div {
+    margin-top: 10px;
+}
