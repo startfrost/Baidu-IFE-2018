@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* 清除 *、li、img 的默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+            border: none;
+        }
+
+        body {
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 1000;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            clear: both;
+        }
+
+        dl {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* 解决由float造成margin大小不对的问题 */
+        dl::after {
+            clear: both;
+            height: 0;
+            width: 100%;
+            content: '';
+            display: block;
+        }
+
+        dl dt {
+            font-weight: 600;
+        }
+
+        .base-information dt,
+        .contact-information dt {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .base-information dd,
+        .contact-information dd {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .ability-information div,
+        .education-information div,
+        .project-information div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>简历</h1>
+    <div class="information">
+        <h2>基本信息</h2>
+        <dl class="base-information">
+            <div>
+                <dt>姓名</dt>
+                <dd>张三</dd>
+            </div>
+            <div>
+                <dt>性别</dt>
+                <dd>男</dd>
+            </div>
+            <div>
+                <dt>应聘岗位</dt>
+                <dd>Web前端工程师</dd>
+            </div>
+        </dl>
+        <h2>联系方式</h2>
+        <dl class="contact-information">
+            <div>
+                <dt>手机</dt>
+                <dd>12312341234</dd>
+            </div>
+            <div>
+                <dt>Email</dt>
+                <dd><a href="#">joinefe@baidu.com</a></dd>
+            </div>
+            <div>
+                <dt>个人主页</dt>
+                <dd><a href="#">Github</a></dd>
+            </div>
+        </dl>
+        <h2>能力描述</h2>
+        <dl class="ability-information">
+            <div>
+                <dt>技术能力</dt>
+                <dd>熟练掌握HTML，CSS，JavaScript</dd>
+            </div>
+            <div>
+                <dt>综合能力</dt>
+                <dd>良好的沟通，主动积极，努力勤奋</dd>
+            </div>
+        </dl>
+        <h2>教育经历</h2>
+        <dl class="education-information">
+            <div>
+                <dt>本科</dt>
+                <dd>百度前端技术学院小薇学院</dd>
+            </div>
+            <div>
+                <dt>研究生</dt>
+                <dd>百度前端技术学院大斌学院</dd>
+            </div>
+        </dl>
+        </dl>
+        <h2>项目经历</h2>
+        <dl class="project-information">
+            <div>
+                <dt>小度小度</dt>
+                <dd>作为前端工程师角色参与了ABC组件的开发</dd>
+            </div>
+            <div>
+                <dt>SAN Doc</dt>
+                <dd>作为文档工程师参与了SAN Doc编写</dd>
+            </div>
+        </dl>
+    </div>
+    <button id="hi">和我打招呼</button>
+    <button id="special-hobby">点开看看我的特殊爱好</button>
+    <p id="for-wow">Wow</p>
+    <button id="wow">点击查看惊喜</button>
+    <script>
+        var hi = document.querySelector("#hi")
+        var specialHobby = document.querySelector("#special-hobby")
+        var forWow = document.querySelector("#for-wow")
+        var wow = document.querySelector("#wow")
+
+
+        hi.addEventListener("click", function () {
+            alert("你好呀！")
+        })
+
+        specialHobby.addEventListener("click", function () {
+            console.log("不知道你找不找得到这里呢？特殊的爱好，这种恶趣味算不算。。")
+        })
+
+        wow.addEventListener("click", function () {
+            forWow.innerHTML = "还是Wow，没想到吧？"
+        })
+    </script>
+</body>
+
+</html>

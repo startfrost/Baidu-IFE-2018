@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var firstNum = document.querySelector("#first-number")
+        var secondNum = document.querySelector("#second-number")
+        var addBtn = document.querySelector("#add-btn")
+        var minusBtn = document.querySelector("#minus-btn")
+        var timesBtn = document.querySelector("#times-btn")
+        var divideBtn = document.querySelector("#divide-btn")
+        var result = document.querySelector("#result")
+
+
+        addBtn.addEventListener("click", function () {
+            result.innerHTML = parseFloat(firstNum.value) + parseFloat(secondNum.value)     // 单纯的加号会被认为是字符串拼接
+        })
+
+        minusBtn.addEventListener("click", function () {
+            result.innerHTML = firstNum.value - secondNum.value
+        })
+
+        timesBtn.addEventListener("click", function () {
+            result.innerHTML = firstNum.value * secondNum.value
+        })
+
+        divideBtn.addEventListener("click", function () {
+            result.innerHTML = firstNum.value / secondNum.value
+        })
+    </script>
+</body>
+
+</html>
