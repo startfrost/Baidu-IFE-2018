@@ -1,0 +1,76 @@
+/* 清除 *、li、img 的默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+    border: none;
+}
+
+h1 {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 30px;
+    font-size: 30px;
+    background-color: rgb(133, 133, 133);
+    color: white;
+}
+
+h2 {
+    float: left;
+    width: 110px;
+    height: 150px;
+    line-height: 150px;
+    background-color: rgb(214, 214, 214);
+    padding-left: 40px;
+    margin-right: 10px;
+}
+
+dl {
+    border-bottom: 2px solid gray;
+    padding-top: 15px;
+}
+
+dl::after {
+    clear: both;
+    height: 0;
+    width: 100%;
+    content: "";
+    display: block;
+}
+
+dl dt {
+    font-weight: 600;
+}
+
+.base-information div dt,
+ .contact-information div dt {
+    float: left;
+    margin-right: 10px;
+}
+
+.base-information div dd,
+ .contact-information div dd {
+    float: left;
+    margin-right: 30px;
+}
+
+.ability-information div dt,
+ .education-information div dt,
+  .project-information div dt {
+    display: inline;
+}
+
+.ability-information div dd,
+ .education-information div dd,
+  .project-information div dd {
+    display: inline;
+}
