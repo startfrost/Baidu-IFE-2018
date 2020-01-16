@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #total {
+            height: 700px;
+            display: flex;
+        }
+
+        #left {
+            background-color: blue;
+            flex-grow: 3;
+            flex-basis: 0; /* 默认为auto，此时若有文字则比例不对，具体原因参见官方文档 */
+        }
+
+        #right {
+            background-color: green;
+            flex-grow: 7;
+            flex-basis: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="total">
+        <div id="left">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+        <div id="right">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+    </div>
+</body>
+
+</html>
