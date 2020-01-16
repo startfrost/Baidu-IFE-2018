@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #left {
+            height: 700px;
+            background-color: blue;
+            width: 200px;
+            float: left;
+        }
+
+        #middle {
+            height: 700px;
+            background-color: hotpink;
+            width: 600px;
+            float: left;
+        }
+
+        #right {
+            height: 700px;
+            background-color: green;
+            width: calc(100% - 800px);
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 想不到middle-left-right这个顺序的解法，只好按left-middle-right顺序了 -->
+    <!-- 问题主要出在#right的margin-right属性中负值无法由calc()算得? -->
+    <!-- 留待以后解决 -->
+    <div id="left">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+    <div id="middle">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+    <div id="right">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</body>
+
+</html>

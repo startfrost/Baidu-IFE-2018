@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #main {
+            position: relative;
+            width: 100%;
+        }
+
+        #middle {
+            height: 700px;
+            background-color: hotpink;
+            position: absolute;
+            width: calc(100% - 400px);
+            left: 200px;
+        }
+
+        #left {
+            height: 700px;
+            background-color: blue;
+            width: 200px;
+            position: absolute;
+            left: 0px;
+        }
+
+        #right {
+            height: 700px;
+            background-color: green;
+            width: 200px;
+            position: absolute;
+            left: calc(100% - 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 子绝父相布局 -->
+    <div id="main">
+        <div id="middle">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+        <div id="left">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+        <div id="right">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+    </div>
+</body>
+
+</html>
