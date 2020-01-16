@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: rgb(51, 51, 51);
+            height: 50px;
+        }
+
+        .header .header-element {
+            width: 960px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .header .header-element .header-logo {
+            display: inline-block;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 5px;
+        }
+
+        .header .header-element .header-navigation {
+            display: inline-block;
+            position: absolute;
+            right: 0px;
+            top: 1px;
+        }
+
+        .header .header-element .header-navigation a {
+            font-size: 10px;
+            color: rgb(255, 255, 255);
+        }
+
+        .banner {
+            background-color: rgb(102, 187, 51);
+            height: 250px;
+            position: relative;
+        }
+
+        .banner .banner-pagination {
+            position: absolute;
+            right: 15%;
+            bottom: 5px;
+        }
+
+        .banner .banner-pagination span {
+            display: inline-block;
+            padding: 5px;
+            background-color: rgb(178, 221, 153);
+        }
+
+        .banner .banner-pagination span.active {
+            padding-top: 20px;
+            background-color: rgb(224, 241, 214);
+        }
+
+        .navigation {
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            height: 50px;
+        }
+
+        .navigation .navigation-menu {
+            display: inline-block;
+            position: absolute;
+            left: 15%;
+            bottom: 0px;
+            z-index: 1;
+        }
+
+        .navigation .navigation-menu div {
+            display: inline-block;
+            font-size: 15px;
+            padding: 10px;
+            background-color: rgb(238, 238, 238);
+            border: 1px solid rgb(102, 102, 102);
+            border-radius: 10px 10px 0px 0px;
+            
+        }
+
+        .navigation .navigation-menu div.active {
+            background-color: rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+        }
+
+        .navigation .navigation-line {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .content {
+            background-color: rgb(255, 255, 255);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content .content-row {
+            flex: 1 1 0;
+            display: flex;
+            width: 960px;
+        }
+
+        .content .content-row .content-row-column {
+            flex: 1 1 0;
+            border: 1px solid rgb(0, 0, 0);
+            margin: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .footer {
+            background-color: rgb(102, 102, 102);
+            height: 80px;
+        }
+        .footer .footer-copyright {
+            font-size:10px;
+            color: rgb(255, 255, 255);
+            width: 200px;
+            position: relative;
+            top: 10px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-element">
+            <div class="header-logo">Logo</div>
+            <div class="header-navigation">
+                <a href="#">Github</a>
+                <a href="#">Register</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="banner-pagination">
+            <span>1</span>
+            <span class="active">2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="navigation-menu">
+            <div class="active">HOME</div>
+            <div>PROFILE</div>
+            <div>ABOUT</div>
+        </div>
+        <div class="navigation-line"></div>
+    </div>
+    <div class="content">
+        <div class="content-row">
+            <div class="content-row-column">This is Content 1</div>
+            <div class="content-row-column">MaybeContent 2</div>
+            <div class="content-row-column">Content 3</div>
+        </div>
+        <div class="content-row">
+            <div class="content-row-column">Content 4</div>
+            <div class="content-row-column">Content 5</div>
+            <div class="content-row-column">Content 6</div>
+            <div class="content-row-column">Content 7</div>
+        </div>
+        <div class="content-row">
+            <div class="content-row-column">Content 8</div>
+            <div class="content-row-column">Content 9</div>
+            <div class="content-row-column">Content 10</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-copyright">© 2018 ife.baidu.com</div>
+    </div>
+</body>
+
+</html>
