@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input id="name" type="text">
+    <button id="submit-btn">Submit</button>
+    <script>
+        // 注意此处变量名不能为name，它是保留字
+        var nameText = document.querySelector("#name")
+        var submitBtn = document.querySelector("#submit-btn")
+
+        submitBtn.addEventListener("click", function (e) {
+            console.log(nameText.value)
+            return
+        })
+
+        window.addEventListener("keyup", function (e) {
+            if (e.keyCode == 13) {
+                console.log(nameText.value)
+                return
+            }
+            if (e.keyCode == 27) {
+                nameText.value = null
+            }
+        })
+    </script>
+</body>
+
+</html>
