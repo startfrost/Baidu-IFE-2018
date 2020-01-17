@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" value="0" placeholder="第一个数字">
+    <input id="second-number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var firstNum = document.querySelector("#first-number")
+        var secondNum = document.querySelector("#second-number")
+        var addBtn = document.querySelector("#add-btn")
+        var minusBtn = document.querySelector("#minus-btn")
+        var timesBtn = document.querySelector("#times-btn")
+        var divideBtn = document.querySelector("#divide-btn")
+        var result = document.querySelector("#result")
+
+        function judgeNumber(str) {
+            var result = Number(str)
+            if (!isNaN(result)) {
+                return true
+            } else {
+                console.log(str + "不是一个数字。")
+                return false
+            }
+        }
+
+        addBtn.addEventListener("click", function () {
+            first = firstNum.value
+            second = secondNum.value
+            if (judgeNumber(first) && judgeNumber(second)) {
+                result.innerHTML = Number(firstNum.value) + Number(secondNum.value)     // 单纯的加号会被认为是字符串拼接
+            }
+            return
+        })
+
+        minusBtn.addEventListener("click", function () {
+            first = firstNum.value
+            second = secondNum.value
+            if (judgeNumber(first) && judgeNumber(second)) {
+                result.innerHTML = Number(firstNum.value) - Number(secondNum.value)
+            }
+            return
+        })
+
+        timesBtn.addEventListener("click", function () {
+            first = firstNum.value
+            second = secondNum.value
+            if (judgeNumber(first) && judgeNumber(second)) {
+                result.innerHTML = Number(firstNum.value) * Number(secondNum.value)
+            }
+            return
+        })
+
+        divideBtn.addEventListener("click", function () {
+            first = firstNum.value
+            second = secondNum.value
+            if (judgeNumber(first) && judgeNumber(second)) {
+                if (Number(secondNum.value) != 0) {
+                    result.innerHTML = Number(firstNum.value) / Number(secondNum.value)
+                } else {
+                    console.log("被除数不能为0")
+                }
+            }
+            return
+        })
+    </script>
+</body>
+
+</html>
