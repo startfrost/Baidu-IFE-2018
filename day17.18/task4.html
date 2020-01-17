@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function judgeThree(num) {
+            if (num % 3 == 0) {
+                return true
+            }
+            var ones = num % 10
+            if (ones == 3) {
+                return true
+            }
+            var tens = Math.floor(num / 10)
+            if (tens == 3) {
+                return true
+            }
+            return false
+        }
+
+        for (var i = 1; i < 101; i++) {
+            if (judgeThree(i)) {
+                console.log("PA")
+            } else {
+                console.log(i)
+            }
+        }
+    </script>
+</body>
+
+</html>
