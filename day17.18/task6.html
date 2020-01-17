@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p></p>
+    <script>
+        var greeting = document.querySelector("p")
+        var now = new Date().getHours()
+        if (now < 18 && now > 7) {
+            greeting.innerHTML = "早上好"
+        } else {
+            greeting.innerHTML = "晚上好"
+        }
+    </script>
+</body>
+
+</html>
