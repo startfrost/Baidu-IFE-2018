@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        // 会出现点击按钮，淡出速度越来越快的问题
+        // var fadeObj = document.querySelector("#fade-obj")
+        // var fadeBtn = document.querySelector("#fade-btn")
+        // var changeTime
+
+        // fadeBtn.addEventListener("click", function (e) {
+        //     fadeObj.style.opacity = 1;
+        //     e.target.disabled = true;
+        //     if (changeTime) {
+        //         window.clearInterval(changeTime)
+        //     }
+        //     changeTime = window.setInterval(opacityChange, 10);
+        // });
+        // function opacityChange() {
+        //     if (fadeObj.style.opacity > 0) {
+        //         fadeObj.style.opacity -= 0.01;
+        //     } else {
+        //         fadeBtn.disabled = false;
+        //     }
+        // }
+
+        var fadeObj = document.querySelector("#fade-obj")
+        var fadeBtn = document.querySelector("#fade-btn")
+        var interval
+
+        fadeBtn.addEventListener("click", function (e) {
+            e.target.disabled = true
+            if (e.target.innerHTML == "淡出") {
+                fadeObj.style.opacity = 1
+                interval = window.setInterval(decreaseOpacity, 10)
+            } else {
+                fadeObj.style.opacity = 0
+                interval = window.setInterval(increaseOpacity, 10)
+            }
+        })
+
+        function decreaseOpacity() {
+            if (fadeObj.style.opacity > 0) {
+                fadeObj.style.opacity = parseFloat(fadeObj.style.opacity) - 0.01
+            } else {
+                window.clearInterval(interval)
+                fadeBtn.disabled = false
+                fadeBtn.innerHTML = "淡入"
+            }
+        }
+
+        function increaseOpacity() {
+            if (fadeObj.style.opacity < 1) {
+                fadeObj.style.opacity = parseFloat(fadeObj.style.opacity) + 0.01
+            } else {
+                window.clearInterval(interval)
+                fadeBtn.disabled = false
+                fadeBtn.innerHTML = "淡出"
+            }
+        }
+    </script>
+</body>
+
+</html>
