@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>
+        <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a"
+            type="text">
+        <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b"
+            type="text">
+    </div>
+    <div>
+        <button>判断当前选中的输入框输入内容是否为数字</button>
+        <button>把 A 四舍五入为 B 个小数位数的数字</button>
+        <button>当前选中数字的绝对值</button>
+        <button>对当前选中的数字进行上舍入</button>
+        <button>对当前选中的数字进行下舍入</button>
+        <button>把当前选中的数字四舍五入为最接近的整数</button>
+        <button>返回 A 和 B 中的最高值</button>
+        <button>返回 A 和 B 中的最低值</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        var radioA = document.querySelector("#radio-a")
+        var radioB = document.querySelector("#radio-b")
+        var numA = document.querySelector("#num-a")
+        var numB = document.querySelector("#num-b")
+        var buttons = document.querySelectorAll("div button")
+        var resultP = document.querySelector("#result")
+
+        buttons[0].addEventListener("click", function () {
+            var result
+            if (radioA.checked == true) {
+                result = judgeNum(numA.value)
+            } else if (radioB.checked == true) {
+                result = judgeNum(numB.value)
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[1].addEventListener("click", function () {
+            if (judgeNum(numA.value) && judgeNum(numB.value)) {
+                var number = Number(numA.value)
+                var decimal = Number(numB.value)
+                resultP.innerHTML = number.toFixed(decimal)
+            }
+        })
+
+        buttons[2].addEventListener("click", function () {
+            var result
+            if (radioA.checked && judgeNum(numA.value)) {
+                result = Math.abs(numA.value)
+            } else if (radioB.checked && judgeNum(numB.value)) {
+                result = Math.abs(numB.value)
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[3].addEventListener("click", function () {
+            var result
+            if (radioA.checked && judgeNum(numA.value)) {
+                result = Math.ceil(numA.value)
+            } else if (radioB.checked && judgeNum(numB.value)) {
+                result = Math.ceil(numB.value)
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[4].addEventListener("click", function () {
+            var result
+            if (radioA.checked && judgeNum(numA.value)) {
+                result = Math.floor(numA.value)
+            } else if (radioB.checked && judgeNum(numB.value)) {
+                result = Math.floor(numB.value)
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[5].addEventListener("click", function () {
+            var result
+            if (radioA.checked && judgeNum(numA.value)) {
+                result = Math.round(numA.value)
+            } else if (radioB.checked && judgeNum(numB.value)) {
+                result = Math.round(numB.value)
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[6].addEventListener("click", function () {
+            var result
+            if (judgeNum(numA.value) && judgeNum(numB.value)) {
+                if (Number(numA.value) > Number(numB.value)) {
+                    result = Number(numA.value)
+                } else {
+                    result = Number(numB.value)
+                }
+            }
+            resultP.innerHTML = result
+        })
+
+        buttons[7].addEventListener("click", function () {
+            var result
+            if (judgeNum(numA.value) && judgeNum(numB.value)) {
+                if (Number(numA.value) < Number(numB.value)) {
+                    result = Number(numA.value)
+                } else {
+                    result = Number(numB.value)
+                }
+            }
+            resultP.innerHTML = result
+        })
+
+
+        function judgeNum(num) {
+            if (Number(num)) {
+                return true
+            } else {
+                console.log(num + "不是一个数字，请重新输入！")
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>
