@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .smile {
+            background-image: url("./erik_smile.jpg");
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+            width: 480px;
+            height: 480px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="smile"></div>
+    <script>
+        var smile = document.querySelector(".smile")
+        var positionY = 0
+
+        window.setInterval(smileChange, 100)
+
+        function smileChange() {
+            // 8160 - 480 == 7680，若设为-8160，则会切到图片以外的空白
+            if (positionY > -7680) {
+                positionY -= 480
+            } else {
+                positionY = 0
+            }
+            smile.style.backgroundPosition = "0px " + positionY + "px"
+        }
+    </script>
+</body>
+
+</html>

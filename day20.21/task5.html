@@ -36,6 +36,7 @@
                 fadeObj.style.opacity = 1
                 interval = window.setInterval(decreaseOpacity, 10)
             } else {
+                window.clearInterval(interval)
                 fadeObj.style.opacity = 0
                 interval = window.setInterval(increaseOpacity, 10)
             }
