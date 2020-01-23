@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p id="now-time"></p>
+    <script>
+        var nowTime = document.querySelector("#now-time");
+        var now;
+        var year;
+        var month;
+        var date;
+        var day;
+        var hour;
+        var minute;
+        var second;
+        var period
+        var total;
+
+        function updateTime() {
+            now = new Date();
+            year = getYear();
+            month = getMonth();
+            date = getDate();
+            day = getDay();
+            hour = getHours();
+            minute = getMinutes();
+            second = getSeconds();
+            period = getPeriod();
+            total = year + "-" + month + "-" + date + " " + day + "  " + hour + ":" + minute + ":" + second + " " + period;
+            nowTime.innerHTML = total;
+        }
+
+        function getYear() {
+            var year = now.getFullYear();
+            return year;
+        }
+
+        function getMonth() {
+            var month = now.getMonth();
+            month += 1;
+            month = addZero(month);
+            return month;
+        }
+
+        function getDate() {
+            var date = now.getDate();
+            date = addZero(date);
+            return date;
+        }
+
+        function getDay() {
+            var day;
+            switch (now.getDay()) {
+                case 0:
+                    day = "Monday";
+                    break;
+                case 1:
+                    day = "Tuesday";
+                    break;
+                case 2:
+                    day = "Wednesday";
+                    break;
+                case 3:
+                    day = "Thursday";
+                case 4:
+                    day = "Friday";
+                    break;
+                case 5:
+                    day = "Saturday";
+                    break;
+                case 6:
+                    day = "Sunday"
+            }
+            return day;
+        }
+
+        function getHours() {
+            var hour = now.getHours();
+            if (hour > 12) {
+                hour = hour - 12
+            }
+            hour = addZero(hour);
+            return hour;
+        }
+
+        function getMinutes() {
+            var minute = now.getMinutes();
+            minute = addZero(minute);
+            return minute;
+        }
+
+        function getSeconds() {
+            var second = now.getSeconds();
+            second = addZero(second);
+            return second;
+        }
+
+        function getPeriod() {
+            var period;
+            if (now.getHours() > 12) {
+                period = "PM";
+            } else {
+                period = "AM";
+            }
+            return period;
+        }
+
+        function addZero(num) {
+            if (num < 10) {
+                num = "0" + num;
+            }
+            return num;
+        }
+
+        window.setInterval(updateTime, 1000);
+    </script>
+</body>
+
+</html>
