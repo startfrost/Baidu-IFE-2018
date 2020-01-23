@@ -30,39 +30,39 @@
             [6, "Area2-2", 2],
             [7, "Area1-2-3", 4],
             [8, "Area2-2-1", 6],
-        ];
+        ]
 
         function toArray(object) {
-            var scoreArray = [];
+            var scoreArray = []
             for (var key in object) {
-                var temp = [];
-                temp.push(key);
-                var value = object[key];
+                var temp = []
+                temp.push(key)
+                var value = object[key]
                 for (var key2 in value) {
-                    temp.push(value[key2]);
+                    temp.push(value[key2])
                 }
-                scoreArray.push(temp);
+                scoreArray.push(temp)
             }
-            return scoreArray;
+            return scoreArray
         }
 
         function toObject(array) {
-            var menuObject = {};
-            var storeArray = [];
-            var father;
+            var menuObject = {}
+            var storeArray = []
+            var father
             for (var i = 0; i < array.length; i++) {
-                var temp = {};
-                temp.name = array[i][1];
-                temp.subMenu = {};
-                storeArray.push(temp);
+                var temp = {}
+                temp.name = array[i][1]
+                temp.subMenu = {}
+                storeArray.push(temp)
                 if (array[i][2] == -1) {
-                    menuObject['"' + (i + 1) + '"'] = temp;
+                    menuObject['"' + (i + 1) + '"'] = temp
                 } else {
-                    father = array[i][2];
-                    storeArray[father - 1]["subMenu"]['"' + (i + 1) + '"'] = temp;
+                    father = array[i][2]
+                    storeArray[father - 1]["subMenu"]['"' + (i + 1) + '"'] = temp
                 }
             }
-            return menuObject;
+            return menuObject
         }
 
     </script>
