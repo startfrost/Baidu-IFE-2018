@@ -252,6 +252,7 @@
         var resultWrapper = document.querySelector("#result-wrapper");
 
         window.setInterval(updateResultWrapper, 1000);
+        window.setInterval(adjustDate, 100);
 
         function updateResultWrapper() {
             var nowTime = getNowTime();
@@ -280,9 +281,56 @@
                     "日 " + getDay(selectedTime) + " " + getHours(selectedTime) + ":" + getMinutes(selectedTime) + ":" + getSeconds(selectedTime) +
                     " 还有 " + diffDay + " 天 " + diffHour + " 小时 " + diffMinute + " 分 " + diffSecond + " 秒 ";
             }
+        }
 
+        function adjustDate() {
+            var year = Number(getValue(yearSelect));
+            var month = Number(getValue(monthSelect));      // switch是严格等于，因此将其从string转化为number
+            var day29 = daySelect.children[28];
+            var day30 = daySelect.children[29];
+            var day31 = daySelect.children[30];
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    showOption(day29);
+                    showOption(day30);
+                    showOption(day31);
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    showOption(day29);
+                    showOption(day30);
+                    hideOption(day31);
+                    break;
+                case 2:
+                    if (isLeapYear(year)) {
+                        showOption(day29);
+                    } else {
+                        hideOption(day29);
+                    }
+                    hideOption(day30);
+                    hideOption(day31);
+                    break;
+            }
+        }
 
-            console.log(difference, diffDay, diffHour, diffMinute, diffSecond);
+        function hideOption(option) {
+            option.style.display = "none";
+        }
+
+        function showOption(option) {
+            option.style.display = "inline";
+        }
+
+        function isLeapYear(n) {
+            return ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0);
         }
 
         function getYear(time) {
