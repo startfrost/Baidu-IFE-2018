@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        li:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script>
+        var postfixList = ["163.com", "gmail.com", "126.com", "qq.com", "263.com"];
+        var emailInput = document.querySelector("#email-input");
+        var emailSugWrapper = document.querySelector("#email-sug-wrapper");
+        var chosenIndex;
+
+
+        // 监听用户输入情况
+        emailInput.addEventListener("keyup", function (e) {
+            if ((e.key != "Enter") && (e.key != "ArrowUp") && (e.key != "ArrowDown")) {
+                chosenIndex = emailSugWrapper.firstChild;
+                var userInput = getUserInput(e);
+                generateSugWrapper(userInput);
+                checkSugWrapper(userInput);
+            }
+            handleSpecialKey(e);
+        })
+
+        // 鼠标点击选中某个li
+        emailSugWrapper.addEventListener("click", function (e) {
+            emailInput.value = e.target.innerHTML;
+            hideWrapper();
+        })
+
+        // 处理up、down、enter按键动作
+        function handleSpecialKey(e) {
+            if (!emailSugWrapper.hasChildNodes) {
+                return;
+            }
+            if (e.key == "Enter") {
+                if (emailInput.value != "") {
+                    emailInput.value = chosenIndex.innerHTML;
+                }
+                hideWrapper();
+            }
+            if (e.key == "ArrowUp") {
+                chosenIndex.style.color = null;
+                if (chosenIndex == emailSugWrapper.firstChild) {
+                    chosenIndex = emailSugWrapper.lastChild;
+                } else {
+                    chosenIndex = chosenIndex.previousSibling;
+                }
+                chosenIndex.style.color = "red";
+            }
+            if (e.key == "ArrowDown") {
+                chosenIndex.style.color = null;
+                if (chosenIndex == emailSugWrapper.lastChild) {
+                    chosenIndex = emailSugWrapper.firstChild;
+                } else {
+                    chosenIndex = chosenIndex.nextSibling;
+                }
+                chosenIndex.style.color = "red";
+            }
+        }
+
+        // 处理用户输入信息
+        function getUserInput(e) {
+            var userInput = e.target.value.trim();
+            return userInput;
+        }
+
+        // 生成提示框
+        function generateSugWrapper(userInput) {
+            var post;
+            var fullFlag = true;
+            // 删除已有子节点
+            while (emailSugWrapper.hasChildNodes()) {
+                emailSugWrapper.removeChild(emailSugWrapper.firstChild);
+            }
+            // 获取@之前的内容
+            if (userInput.indexOf('@') != -1) {
+                post = userInput.substring(userInput.indexOf('@') + 1, userInput.length);
+                userInput = userInput.substring(0, userInput.indexOf('@'));
+            }
+            // 添加新的子节点
+            for (var postfix of postfixList) {
+                if (postfix.indexOf(post) != -1) {
+                    var liText = document.createTextNode(userInput + "@" + postfix);
+                    var liNode = document.createElement("li");
+                    liNode.appendChild(liText);
+                    emailSugWrapper.appendChild(liNode);
+                    fullFlag = false;
+                }
+            }
+            if (fullFlag) {
+                for (var postfix of postfixList) {
+                    var liText = document.createTextNode(userInput + "@" + postfix);
+                    var liNode = document.createElement("li");
+                    liNode.appendChild(liText);
+                    emailSugWrapper.appendChild(liNode);
+                }
+            }
+            chosenIndex = emailSugWrapper.firstChild;
+            chosenIndex.style.color = "red";
+        }
+
+        // 检查提示框状态
+        function checkSugWrapper(userInput) {
+            if (userInput != "") {
+                showWrapper();
+            } else {
+                hideWrapper();
+            }
+        }
+
+        // 显示提示框
+        function showWrapper() {
+            emailSugWrapper.style.visibility = "visible";
+        }
+
+        // 隐藏提示框
+        function hideWrapper() {
+            emailSugWrapper.style.visibility = "hidden";
+        }
+    </script>
+</body>
+
+</html>
