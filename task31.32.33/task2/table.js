@@ -124,22 +124,3 @@ function regionRenderFirst() {
         return false;
     }
 }
-
-// // 合并单元格
-// function mergeCell(column) {
-//     var tableTr = document.querySelectorAll("#table-wrapper table tr")
-//     var columnCells = document.querySelectorAll("#table-wrapper table tr td:nth-child(" + column + ")");
-//     var head = columnCells[0];
-//     var mergeCount = 1;
-//     for (var i = 1; i < columnCells.length; i++) {
-//         // console.log(columnCell.innerHTML + "  " + head.innerHTML);
-//         if (columnCells[i].innerHTML == head.innerHTML) {
-//             mergeCount++;
-//             tableTr[i].removeChild(document.querySelectorAll("#table-wrapper table tr:nth-child(" + i + ") " + "td:nth-child(" + column + ")"));
-//         } else {     
-//             mergeCount = 1;
-//             head = columnCells[i];
-//         }
-//         head.setAttribute("rowspan", mergeCount);
-//     }
-// }
