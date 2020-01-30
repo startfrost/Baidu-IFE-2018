@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <line x1="100" y1="100" x2="200" y2="200" stroke="black" stroke-width="5" />
+    <rect x="300" y="100" width="200" height="200" />
+    <circle cx="700" cy="200" r="100" />
+    <text x="800" y="100">显示一些文字</text>
+    <!-- 画一朵花 -->
+    <svg x="100" y="400" width="400" height="500">
+        <!-- 绘制花瓣 -->
+        <g transform="rotate(0 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(30 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(60 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(90 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(120 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(150 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(180 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(210 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(240 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(270 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(300 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <g transform="rotate(330 200 290)">
+            <path d="M200 280 Q 150 230 200 180" fill="red" />
+            <path d="M200 180 Q 250 230 200 280" fill="red" />
+        </g>
+        <circle cx="200" cy="290" r="10" fill="yellow" />
+        <line x1="200" y1="400" x2="200" y2="500" stroke="green" stroke-width="2" />
+    </svg>
+    <!-- 画一棵小树 -->
+    <svg x="600" y="400" width="400" height="500">
+        <ellipse cx="200" cy="200" rx="50" ry="70" fill="green" />
+        <rect x="190" y="240" width="20" height="180" fill="brown" />
+    </svg>
+</svg>
