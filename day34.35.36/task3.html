@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <canvas id="little-practice" width="800" height="800"></canvas>
+        <script>
+            var littlePractice = document.querySelector("#little-practice");
+            var ctx = littlePractice.getContext("2d");
+
+            ctx.beginPath();
+            // 画线
+            ctx.moveTo(20, 20);
+            ctx.lineTo(80, 80);
+            ctx.stroke();
+            // 画矩形
+            ctx.strokeRect(100, 20, 80, 60);
+            // 画圆形
+            ctx.moveTo(260, 50);
+            ctx.arc(230, 50, 30, 0, 2 * Math.PI);
+            ctx.stroke();
+            // 显示一些文字
+            ctx.font = "40px serif";
+            ctx.fillText("Hello world", 280, 60);
+            // 画时钟
+            ctx.save();
+            ctx.translate(50, 130);
+            ctx.moveTo(30, 0);
+            ctx.arc(0, 0, 30, 0, 2 * Math.PI);  // 时钟外边框
+            for (var i = 0; i < 12; i++) {  // 时钟刻度
+                ctx.save();
+                ctx.rotate(Math.PI / 6 * i);
+                ctx.moveTo(0, 30);
+                ctx.lineTo(0, 25);
+                ctx.restore();
+            }
+            ctx.moveTo(0, -15);
+            ctx.lineTo(0, 0);  // 分针
+            ctx.lineTo(10, 0);  //时针
+            ctx.stroke();
+            ctx.restore();
+            ctx.closePath();
+            // 画云
+            ctx.save();
+            ctx.scale(1, 0.5);
+            ctx.beginPath();
+            ctx.moveTo(100, 400);
+            ctx.arc(100, 400, 40, 0, 2 * Math.PI);
+            ctx.moveTo(140, 380);
+            ctx.arc(140, 380, 40, 0, 2 * Math.PI);
+            ctx.moveTo(200, 420);
+            ctx.arc(200, 420, 40, 0, 2 * Math.PI);
+            ctx.moveTo(80, 440);
+            ctx.arc(80, 440, 40, 0, 2 * Math.PI);
+            ctx.moveTo(150, 450);
+            ctx.arc(150, 450, 40, 0, 2 * Math.PI);
+            ctx.fillStyle = "skyblue";
+            ctx.fill();
+            ctx.closePath();
+            ctx.restore();
+        </script>
+    </body>
+</html>
