@@ -24,18 +24,19 @@
         var buttonA = document.querySelector("#a");
         buttonA.addEventListener("click", function (e) {
             window.location.hash = "a";
-            renderCont();
         });
 
         var buttonB = document.querySelector("#b");
         buttonB.addEventListener("click", function (e) {
             window.location.hash = "b";
-            renderCont();
         });
 
         var buttonC = document.querySelector("#c");
         buttonC.addEventListener("click", function (e) {
             window.location.hash = "c";
+        });
+
+        window.addEventListener("hashchange", function (e) {
             renderCont();
         });
 

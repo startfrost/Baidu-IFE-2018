@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+
+    <button id="d">D</button>
+    <button id="e">E</button>
+    <button id="f">F</button>
+
+    <div id="contABC"></div>
+    <div id="contDEF"></div>
+
+    <script>
+        function parseHash() {
+            var hashValue = window.location.hash;
+            hashValue = hashValue.slice(1, hashValue.length);
+            var cont = hashValue.split("&");
+            return cont;
+        }
+
+        function renderCont() {
+            var hashCont = parseHash();
+            var contABC = document.querySelector("#contABC");
+            contABC.innerHTML = hashCont[0];
+            var contDEF = document.querySelector("#contDEF");
+            if (hashCont[1] != undefined) {
+                contDEF.innerHTML = hashCont[1];
+            }
+        }
+
+        var bodyElement = document.querySelector("body");
+        bodyElement.addEventListener("click", function (e) {
+            var hashCont = parseHash();
+            switch (e.target.id) {
+                case "a":
+                case "b":
+                case "c":
+                    hashCont[0] = e.target.id;
+                    break;
+                case "d":
+                case "e":
+                case "f":
+                    hashCont[1] = e.target.id;
+                    break;
+            }
+            window.location.hash = hashCont[0] + "&" + hashCont[1];
+        });
+
+        window.addEventListener("hashchange", function (e) {
+            renderCont();
+        });
+
+        renderCont();
+    </script>
+</body>
+
+</html>
