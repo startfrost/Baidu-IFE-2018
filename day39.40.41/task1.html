@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+    <div id="cont"></div>
+    <script>
+        function parseHash() {
+            var hashValue = window.location.hash;
+            return hashValue;
+        }
+
+        function renderCont() {
+            if (parseHash()) {
+                var hashValue = parseHash();
+                var hashContent = document.querySelector(hashValue).innerHTML;
+                var cont = document.querySelector("#cont");
+                cont.innerHTML = hashContent;
+            }
+        }
+
+        var buttonA = document.querySelector("#a");
+        buttonA.addEventListener("click", function (e) {
+            window.location.hash = "a";
+            renderCont();
+        });
+
+        var buttonB = document.querySelector("#b");
+        buttonB.addEventListener("click", function (e) {
+            window.location.hash = "b";
+            renderCont();
+        });
+
+        var buttonC = document.querySelector("#c");
+        buttonC.addEventListener("click", function (e) {
+            window.location.hash = "c";
+            renderCont();
+        });
+
+        renderCont();
+    </script>
+</body>
+
+</html>
