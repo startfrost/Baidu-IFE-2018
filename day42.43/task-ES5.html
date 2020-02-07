@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        // 餐厅类
+        function Restaurant(restaurant) {
+            this.cash = restaurant.cash;
+            this.seats = restaurant.seats;
+            this.staff = restaurant.staff;
+        }
+
+        Restaurant.prototype.hire = function (unhiredStaff) {
+            this.staff.push(unhiredStaff);
+        }
+
+        Restaurant.prototype.fire = function (hiredStaff) {
+            for (var index in this.staff) {
+                if (this.staff[index].name == hiredStaff.name) {
+                    this.staff.splice(index, 1);
+                }
+            }
+        }
+
+        // 职员类
+        function Staff(name, wage) {
+            this.name = name;
+            this.wage = wage;
+        }
+
+        Staff.prototype.work = function () {
+            console.log("职员完成了一次工作");
+        }
+
+        // 服务员类
+        function Waiter(name, wage) {
+            Staff.call(this, name, wage);
+        }
+
+        Waiter.prototype = Object.create(Staff.prototype);
+        Waiter.prototype.constructor = Staff;
+
+        Waiter.prototype.work = function (behave) {
+            if (behave instanceof Array) {
+                console.log("客人点的菜是" + behave);
+            } else {
+                console.log("正在上菜...");
+            }
+        }
+
+        // 厨师类
+        function Cook(name, wage) {
+            Staff.call(this, name, wage);
+        }
+
+        Cook.prototype = Object.create(Staff.prototype);
+        Cook.prototype.constructor = Staff;
+
+        Cook.prototype.work = function () {
+            console.log("一个菜烹饪好了");
+        }
+    </script>
+</body>
+
+</html>

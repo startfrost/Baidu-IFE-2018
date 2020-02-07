@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        class Restaurant {
+            constructor(restaurant) {
+                this.cash = restaurant.cash;
+                this.seats = restaurant.seats;
+                this.staff = restaurant.staff;
+            }
+
+            hire(unhiredStaff) {
+                this.staff.push(unhiredStaff);
+            }
+
+            fire(hiredStaff) {
+                for (var index in this.staff) {
+                    if (this.staff[index].name == hiredStaff.name) {
+                        this.staff.splice(index, 1);
+                    }
+                }
+            }
+        }
+
+        class Staff {
+            constructor(name, wage) {
+                this.name = name;
+                this.wage = wage;
+            }
+
+            work() {
+                console.log("职员完成了一次工作");
+            }
+        }
+
+        class Waiter extends Staff {
+            constructor(name, wage) {
+                super(name, wage);
+            }
+
+            work(behave) {
+                if (behave instanceof Array) {
+                    console.log("客人点的菜是" + behave);
+                } else {
+                    console.log("正在上菜...");
+                }
+            }
+        }
+
+        class Cook extends Staff {
+            constructor(name, wage) {
+                super(name, wage);
+            }
+
+            work() {
+                console.log("一个菜烹饪好了");
+            }
+        }
+    </script>
+</body>
+
+</html>
